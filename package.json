@@ -1,16 +1,16 @@
 {
   "name": "bunnyprotests",
   "version": "1.0.0",
-  "description": "",
-  "main": "bunny.js",
+  "author": "William Bruntrager <w.bruntrager@gmail.com",
+  "description": "Bunny protest creator for twitter",
+  "main": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
     "bunnyprotests": "cli.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["twitter","bunny","protest"],
   "license": "ISC",
   "dependencies": {
     "minimist": "^1.2.0"

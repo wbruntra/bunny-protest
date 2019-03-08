@@ -5,7 +5,7 @@ const pad = (pad, str) => {
 
 const defaultMessage = "podcasts don't need ads";
 
-const makeLinesTraditional = (message, maxLength) => {
+const getLines = (message, maxLength) => {
   const lines = [];
   let words = message.split(' ');
   let newLine = [];
@@ -26,7 +26,7 @@ const makeLinesTraditional = (message, maxLength) => {
 
 const hoistMessage = (message = defaultMessage, lineLength = 12) => {
   const words = message.split(' ');
-  const divisions = makeLinesTraditional(message, lineLength).map(line => {
+  const divisions = getLines(message, lineLength).map(line => {
     return '| ' + pad(' '.repeat(lineLength), line.toUpperCase()) + ' |';
   });
   const top = `|${'￣'.repeat(lineLength / 2 + 1)}|`;
