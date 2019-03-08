@@ -1,18 +1,31 @@
 {
   "name": "bunnyprotests",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "William Bruntrager <w.bruntrager@gmail.com",
+  "homepage": "https://github.com/wbruntra/bunny-protest",
   "description": "Bunny protest creator for twitter",
-  "main": "cli.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d lib"
   },
   "bin": {
-    "bunnyprotests": "cli.js"
+    "bunnyprotests": "./lib/cli.js"
   },
-  "keywords": ["twitter","bunny","protest"],
+  "keywords": [
+    "twitter",
+    "bunny",
+    "protest"
+  ],
   "license": "ISC",
   "dependencies": {
     "minimist": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4"
   }
 }
