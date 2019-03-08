@@ -2,15 +2,17 @@
 
 Recruit a bunny to picket something on your behalf.
 
-Usage:
+## Usage
 
-`bunnyprotests this is something i believe`
+```
+bunnyprotests here is my message for the world
+```
 
 ```
 |￣￣￣￣￣￣￣|
-| THIS IS      |
-| SOMETHING I  |
-| BELIEVE      |
+| HERE IS MY   |
+| MESSAGE FOR  |
+| THE WORLD    |
 |＿＿＿＿＿＿＿|
 (__/) || 
 (•ㅅ•)|| 
