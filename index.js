@@ -24,21 +24,28 @@ const getLines = (message, maxLength) => {
   return lines;
 };
 
-const hoistMessage = (message = defaultMessage, lineLength = 12) => {
+const hoistMessage = (
+  message = defaultMessage,
+  lineLength = 12,
+  nopad = false
+) => {
   const words = message.split(' ');
   const divisions = getLines(message, lineLength).map(line => {
-    return '| ' + pad(' '.repeat(lineLength), line.toUpperCase()) + ' |';
+    const l = nopad
+      ? '| ' + line.toUpperCase() + ' |'
+      : '| ' + pad(' '.repeat(lineLength), line.toUpperCase()) + ' |';
+    return l;
   });
   const top = `|${'￣'.repeat(lineLength / 2 + 1)}|`;
   let lines = [top].concat(divisions);
   const bottom = `|${'＿'.repeat(lineLength / 2 + 1)}|`;
   lines.push(bottom);
   const result = `${lines.join('\n')}
-(\__/) || 
-(•ㅅ•)|| 
+(\__/) ||
+(•ㅅ•)||
 / 　 づ`;
   if (result.length > 140) {
-    console.log('Too long for twitter!')
+    console.log(`Too long for twitter! Result is ${result.length} characters`);
   } else {
     console.log(result);
   }
