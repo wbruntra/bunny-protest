@@ -5,7 +5,7 @@ Recruit a bunny to picket something on your behalf.
 ## Usage
 
 ```
-bunnyprotests here is my message for the world
+bunnyprotests bunny signs are easy to make
 ```
 
 ```
@@ -17,4 +17,13 @@ bunnyprotests here is my message for the world
 (__/) || 
 (•ㅅ•)|| 
 / 　 づ
+```
+
+## Options
+
+```
+  -p    no padding of lines (default: false)
+
+  -l [number]   Specify line length (default: 12)
+
 ```

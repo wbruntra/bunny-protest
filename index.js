@@ -3,8 +3,6 @@ const pad = (pad, str) => {
   return (str + pad).substring(0, pad.length);
 };
 
-const defaultMessage = "podcasts don't need ads";
-
 const getLines = (message, maxLength) => {
   const lines = [];
   let words = message.split(' ');
@@ -16,7 +14,8 @@ const getLines = (message, maxLength) => {
       newLine = [...newLine, words[0]];
       words = words.slice(1);
     } else {
-      lines.push(newLine.join(' '));
+      const lineString = newLine.join(' ');
+      lines.push(lineString);
       newLine = [];
     }
   }
@@ -25,21 +24,30 @@ const getLines = (message, maxLength) => {
 };
 
 const hoistMessage = (
-  message = defaultMessage,
+  message = '',
   lineLength = 12,
   nopad = false
 ) => {
   const words = message.split(' ');
-  const divisions = getLines(message, lineLength).map(line => {
-    const l = nopad
-      ? '| ' + line.toUpperCase() + ' |'
-      : '| ' + pad(' '.repeat(lineLength), line.toUpperCase()) + ' |';
-    return l;
+  const divisions = getLines(message, lineLength);
+  const longestLine = Math.max(divisions.map(l => l.length));
+  const messageLines = divisions.map(line => {
+    let l, marginL, marginR;
+    if (nopad) {
+      line.toUpperCase();
+    } else {
+      marginL = Math.round((lineLength - line.length) / 2);
+      marginR = Math.floor((lineLength - line.length) / 2);
+      l = ' '.repeat(marginL) + line.toUpperCase() + ' '.repeat(marginR);
+    }
+    return `| ${l} |`;
   });
-  const top = `|${'￣'.repeat(lineLength / 2 + 1)}|`;
-  let lines = [top].concat(divisions);
-  const bottom = `|${'＿'.repeat(lineLength / 2 + 1)}|`;
+  const bars = lineLength / 2 + Math.floor(lineLength / 8);
+  const top = `|${'￣'.repeat(bars)}|`;
+  let lines = [top].concat(messageLines);
+  const bottom = `|${'＿'.repeat(bars)}|`;
   lines.push(bottom);
+  console.log(lines.map(l => l.length));
   const result = `${lines.join('\n')}
 (\__/) ||
 (•ㅅ•)||
