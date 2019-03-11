@@ -1,6 +1,24 @@
 #!/usr/bin/env node
 const protest = require('./index');
 const parseArgs = require('minimist');
+const helpMessage = `
+Basic usage:
+  > bunnyprotests your message goes here
+
+Output:
+
+  |￣￣￣￣￣￣￣|
+  | YOUR MESSAGE |
+  |   GOES HERE  |
+  |＿＿＿＿＿＿＿|
+  (__/) ||
+  (•ㅅ•)||
+  / 　 づ
+
+Options:
+  -p  no padding of lines (default: false)
+
+  -l [number] Specify line length (default: 12)`
 
 const run = args => {
   const opts = {
@@ -13,24 +31,7 @@ const run = args => {
   const message = argv['_'].join(' ');
 
   if (argv.h) {
-    console.log(`
-    Basic usage:
-      > bunnyprotests your message goes here
-  
-    Output:
-  
-      |￣￣￣￣￣￣￣|
-      | YOUR MESSAGE |
-      | GOES HERE    |
-      |＿＿＿＿＿＿＿|
-      (__/) ||
-      (•ㅅ•)||
-      / 　 づ
-  
-    Options:
-      -p  no padding of lines (default: false)
-  
-      -l [number] Specify line length (default: 12)`);
+    console.log(helpMessage);
   } else {
     protest(message, lineLength, noPadding);
   }
