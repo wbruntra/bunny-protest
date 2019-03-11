@@ -10,12 +10,12 @@ bunnyprotests bunny signs are easy to make
 
 ```
 |￣￣￣￣￣￣￣|
-| HERE IS MY   |
-| MESSAGE FOR  |
-| THE WORLD    |
+|  BUNNY SIGNS |
+|  ARE EASY TO |
+|     MAKE     |
 |＿＿＿＿＿＿＿|
-(__/) || 
-(•ㅅ•)|| 
+(__/) ||
+(•ㅅ•)||
 / 　 づ
 ```
 

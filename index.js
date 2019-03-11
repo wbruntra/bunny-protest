@@ -47,7 +47,6 @@ const hoistMessage = (
   let lines = [top].concat(messageLines);
   const bottom = `|${'＿'.repeat(bars)}|`;
   lines.push(bottom);
-  console.log(lines.map(l => l.length));
   const result = `${lines.join('\n')}
 (\__/) ||
 (•ㅅ•)||
