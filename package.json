@@ -1,12 +1,15 @@
 {
   "name": "bunnyprotests",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "William Bruntrager <w.bruntrager@gmail.com",
   "homepage": "https://github.com/wbruntra/bunny-protest",
   "description": "Bunny protest creator for twitter",
   "main": "./lib/index.js",
   "bin": {
     "bunnyprotests": "./lib/cli.js"
+  },
+  "scripts": {
+    "test": "jest"
   },
   "keywords": [
     "twitter",
@@ -20,5 +23,8 @@
   },
   "engines": {
     "node": ">=8"
+  },
+  "devDependencies": {
+    "jest": "^24.3.1"
   }
 }

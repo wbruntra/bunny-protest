@@ -23,18 +23,14 @@ const getLines = (message, maxLength) => {
   return lines;
 };
 
-const hoistMessage = (
-  message = '',
-  lineLength = 12,
-  nopad = false
-) => {
+const hoistMessage = (message = '', lineLength = 12, nopad = false) => {
   const words = message.split(' ');
   const divisions = getLines(message, lineLength);
   const longestLine = Math.max(divisions.map(l => l.length));
   const messageLines = divisions.map(line => {
     let l, marginL, marginR;
     if (nopad) {
-      line.toUpperCase();
+      l = line.toUpperCase();
     } else {
       marginL = Math.round((lineLength - line.length) / 2);
       marginR = Math.floor((lineLength - line.length) / 2);
@@ -47,15 +43,15 @@ const hoistMessage = (
   let lines = [top].concat(messageLines);
   const bottom = `|${'＿'.repeat(bars)}|`;
   lines.push(bottom);
-  const result = `${lines.join('\n')}
+  let result = `${lines.join('\n')}
 (\__/) ||
 (•ㅅ•)||
 / 　 づ`;
   if (result.length > 140) {
-    console.log(`Too long for twitter! Result is ${result.length} characters`);
-  } else {
-    console.log(result);
+    result = `Too long for twitter! Result is ${result.length} characters`;
   }
+  console.log(result);
+  return result;
 };
 
 module.exports = hoistMessage;
