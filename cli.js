@@ -20,7 +20,7 @@ Options:
 
   -l [number] Specify line length (default: 12)`
 
-const run = args => {
+const cli = args => {
   const opts = {
     boolean: 'p'
   };
@@ -38,7 +38,7 @@ const run = args => {
 };
 
 if (require.main === module) {
-  run(process.argv.slice(2));
+  cli(process.argv.slice(2));
 }
 
-module.exports = run;
+module.exports = cli;

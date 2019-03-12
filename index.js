@@ -47,7 +47,7 @@ const hoistMessage = (message = '', lineLength = 12, nopad = false) => {
 (\__/) ||
 (•ㅅ•)||
 / 　 づ`;
-  if (result.length > 140) {
+  if (result.length > 280) {
     result = `Too long for twitter! Result is ${result.length} characters`;
   }
   console.log(result);

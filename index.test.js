@@ -2,8 +2,15 @@ const bunnyprotests = require('.');
 
 const message = 'everything is awesome and cool';
 
-const longMessage =
-  'Jest is a delightful JavaScript Testing Framework with a focus on simplicity';
+const longMessage = `How doth the little crocodile
+  Improve his shining tail,
+ And pour the waters of the Nile
+  On every golden scale!
+
+ How cheerfully he seems to grin,
+  How neatly spread his claws,
+ And welcome little fishes in
+  With gently smiling jaws!`;
 
 const standardOutput = `|￣￣￣￣￣￣￣|
 |  EVERYTHING  |
@@ -53,6 +60,6 @@ test('get a wide protesting bunny', () => {
 test('long messages will send an alert', () => {
   console.log = jest.fn();
   bunnyprotests(longMessage);
-  const clogcall = console.log.mock.calls[0][0].match(/Too long for twitter!/);
-  expect(clogcall).toBeTruthy();
+  const clogcall = console.log.mock.calls[0][0];
+  expect(clogcall).toMatch(/Too long for twitter!/);
 });

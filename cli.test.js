@@ -1,61 +1,29 @@
 const cli = require('./cli');
+const expectedOutput = require('./expectedOutput');
 
-const output = `|￣￣￣￣￣￣￣|
-| HOW DOTH THE |
-|    LITTLE    |
-|   CROCODILE  |
-|  IMPROVE HIS |
-| SHINING TAIL |
-|＿＿＿＿＿＿＿|
-(__/) ||
-(•ㅅ•)||
-/ 　 づ`;
-
-const padlessOutput = `|￣￣￣￣￣￣￣|
-| HOW DOTH THE |
-| LITTLE |
-| CROCODILE |
-| IMPROVE HIS |
-| SHINING TAIL |
-|＿＿＿＿＿＿＿|
-(__/) ||
-(•ㅅ•)||
-/ 　 づ`;
-
-const narrowOutput = `|￣￣￣￣￣￣|
-| HOW DOTH |
-| THE LITTLE |
-| CROCODILE |
-| IMPROVE |
-| HIS |
-| SHINING |
-| TAIL |
-|＿＿＿＿＿＿|
-(__/) ||
-(•ㅅ•)||
-/ 　 づ`;
+const message = 'How doth the little crocodile Improve his shining tail'
 
 test('get a regular protesting bunny', () => {
   console.log = jest.fn();
-  const command = 'How doth the little crocodile Improve his shining tail';
+  const command = `${message}`;
   const args = command.split(' ');
   cli(args);
-  expect(console.log).toHaveBeenCalledWith(output);
+  expect(console.log).toHaveBeenCalledWith(expectedOutput.normal);
 });
 
 test('get a padless protesting bunny', () => {
   console.log = jest.fn();
-  const command = 'How doth the little crocodile Improve his shining tail -p';
+  const command = `${message} -p`;
   const args = command.split(' ');
   cli(args);
-  expect(console.log).toHaveBeenCalledWith(padlessOutput);
+  expect(console.log).toHaveBeenCalledWith(expectedOutput.padless);
 });
 
 test('get a narrow protesting bunny', () => {
   console.log = jest.fn();
   const command =
-    'How doth the little crocodile Improve his shining tail -p -l 10';
+    `${message} -p -l 10`;
   const args = command.split(' ');
   cli(args);
-  expect(console.log).toHaveBeenCalledWith(narrowOutput);
+  expect(console.log).toHaveBeenCalledWith(expectedOutput.narrow);
 });
